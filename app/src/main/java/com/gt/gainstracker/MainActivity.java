@@ -2,22 +2,31 @@ package com.gt.gainstracker;
 
 import android.os.Bundle;
 
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 
 import androidx.core.view.WindowCompat;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.gt.gainstracker.databinding.ActivityMainBinding;
 
-import android.view.Menu;
-import android.view.MenuItem;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -31,20 +40,63 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        setSupportActionBar(binding.toolbar);
+        // Get the TextView
+        TextView dateTextView = findViewById(R.id.dateTextView);
+
+        // Get the current date
+        SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE, MM-dd-yyyy", Locale.getDefault());
+        String currentDate = dateFormat.format(new Date());
+
+        // Set the current date in the TextView
+        dateTextView.setText(currentDate);
+
+        // View-binding the Navigation Drawer Toolbar
+        setSupportActionBar(binding.sideNavMain.sideNavToolbar);
+
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, binding.drawerLayout,
+                binding.sideNavMain.sideNavToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        binding.drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+        binding.sideNavView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+                int id = item.getItemId();
+
+                if (id == R.id.triple_bar_home) {
+                    transaction.replace(R.id.containers, new HomeFragment());
+                    transaction.commit();
+                }
+//                else if (id == R.id.triple_bar_user_profile) {
+//                    transaction.replace(R.id.containers, new FirstFragment());
+//                    transaction.commit();
+//                } else if (id == R.id.triple_bar_workout_plan) {
+//                    transaction.replace(R.id.containers, new FirstFragment());
+//                    transaction.commit();
+//                } else if (id == R.id.triple_bar_history) {
+//                    transaction.replace(R.id.containers, new FirstFragment());
+//                    transaction.commit();
+//                } else if (id == R.id.triple_bar_preferences) {
+//                    transaction.replace(R.id.containers, new FirstFragment());
+//                    transaction.commit();
+//                } else if (id == R.id.action_settings) {
+//                    transaction.replace(R.id.containers, new FirstFragment());
+//                    transaction.commit();
+//                }
+                return true;
+            }
+        });
 
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
-        binding.fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAnchorView(R.id.fab)
-                        .setAction("Action", null).show();
-            }
-        });
+        binding.fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAnchorView(R.id.fab)
+                .setAction("Action", null).show());
     }
 
     @Override

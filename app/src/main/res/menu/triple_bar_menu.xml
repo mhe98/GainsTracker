@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/triple_bar_home"
+            android:icon="@drawable/base_home"
+            android:title="@string/home" />
+        <item
+            android:id="@+id/triple_bar_user_profile"
+            android:icon="@drawable/base_user"
+            android:title="@string/profile" />
+        <item
+            android:id="@+id/triple_bar_workout_plan"
+            android:icon="@drawable/base_sports_gymnastics"
+            android:title="@string/workout_plan" />
+        <item
+            android:id="@+id/triple_bar_history"
+            android:icon="@drawable/base_history"
+            android:title="@string/history" />
+        <item
+            android:id="@+id/triple_bar_preferences"
+            android:icon="@drawable/base_checklist"
+            android:title="@string/preferences" />
+        <item
+            android:id="@+id/triple_bar_settings"
+            android:icon="@drawable/base_settings"
+            android:title="@string/settings" />
+    </group>
+</menu>

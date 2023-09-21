@@ -9,19 +9,19 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.gt.gainstracker.databinding.FragmentFirstBinding;
+import com.gt.gainstracker.databinding.FragmentViewPlanBinding;
 
-public class FirstFragment extends Fragment {
+public class ViewPlanFragment extends Fragment {
 
-    private FragmentFirstBinding binding;
+    private FragmentViewPlanBinding binding;
 
     @Override
     public View onCreateView(
-            LayoutInflater inflater, ViewGroup container,
+            @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentFirstBinding.inflate(inflater, container, false);
+        binding = FragmentViewPlanBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
@@ -29,14 +29,10 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.buttonFirst.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(FirstFragment.this)
-                        .navigate(R.id.action_FirstFragment_to_SecondFragment);
-            }
-        });
+        binding.buttonViewPlan.setOnClickListener(view1 -> NavHostFragment.findNavController(ViewPlanFragment.this)
+                .navigate(R.id.action_ViewPlanFragment_to_HomeFragment));
     }
+
 
     @Override
     public void onDestroyView() {

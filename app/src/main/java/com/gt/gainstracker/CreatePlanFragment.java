@@ -9,19 +9,19 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
-import com.gt.gainstracker.databinding.FragmentSecondBinding;
+import com.gt.gainstracker.databinding.FragmentCreatePlanBinding;
 
-public class SecondFragment extends Fragment {
+public class CreatePlanFragment extends Fragment {
 
-    private FragmentSecondBinding binding;
+    private FragmentCreatePlanBinding binding;
 
     @Override
     public View onCreateView(
-            LayoutInflater inflater, ViewGroup container,
+            @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
 
-        binding = FragmentSecondBinding.inflate(inflater, container, false);
+        binding = FragmentCreatePlanBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
@@ -29,13 +29,8 @@ public class SecondFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        binding.buttonSecond.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                NavHostFragment.findNavController(SecondFragment.this)
-                        .navigate(R.id.action_SecondFragment_to_FirstFragment);
-            }
-        });
+        binding.buttonCreatePlan.setOnClickListener(view1 -> NavHostFragment.findNavController(CreatePlanFragment.this)
+                .navigate(R.id.action_CreatePlanFragment_to_HomeFragment));
     }
 
     @Override
