@@ -50,8 +50,6 @@ public class MainActivity extends AppCompatActivity {
         // Set the current date in the TextView
         dateTextView.setText(currentDate);
 
-
-        setSupportActionBar(binding.toolbar);
         // View-binding the Navigation Drawer Toolbar
         setSupportActionBar(binding.sideNavMain.sideNavToolbar);
 
@@ -69,24 +67,25 @@ public class MainActivity extends AppCompatActivity {
                 int id = item.getItemId();
 
                 if (id == R.id.triple_bar_home) {
-                    transaction.replace(R.id.containers, new FirstFragment());
-                    transaction.commit();
-                } else if (id == R.id.triple_bar_user_profile) {
-                    transaction.replace(R.id.containers, new FirstFragment());
-                    transaction.commit();
-                } else if (id == R.id.triple_bar_workout_plan) {
-                    transaction.replace(R.id.containers, new FirstFragment());
-                    transaction.commit();
-                } else if (id == R.id.triple_bar_history) {
-                    transaction.replace(R.id.containers, new FirstFragment());
-                    transaction.commit();
-                } else if (id == R.id.triple_bar_preferences) {
-                    transaction.replace(R.id.containers, new FirstFragment());
-                    transaction.commit();
-                } else if (id == R.id.action_settings) {
-                    transaction.replace(R.id.containers, new FirstFragment());
+                    transaction.replace(R.id.containers, new HomeFragment());
                     transaction.commit();
                 }
+//                else if (id == R.id.triple_bar_user_profile) {
+//                    transaction.replace(R.id.containers, new FirstFragment());
+//                    transaction.commit();
+//                } else if (id == R.id.triple_bar_workout_plan) {
+//                    transaction.replace(R.id.containers, new FirstFragment());
+//                    transaction.commit();
+//                } else if (id == R.id.triple_bar_history) {
+//                    transaction.replace(R.id.containers, new FirstFragment());
+//                    transaction.commit();
+//                } else if (id == R.id.triple_bar_preferences) {
+//                    transaction.replace(R.id.containers, new FirstFragment());
+//                    transaction.commit();
+//                } else if (id == R.id.action_settings) {
+//                    transaction.replace(R.id.containers, new FirstFragment());
+//                    transaction.commit();
+//                }
                 return true;
             }
         });
