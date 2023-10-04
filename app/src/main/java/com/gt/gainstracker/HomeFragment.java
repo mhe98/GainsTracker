@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,6 +13,10 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.gt.gainstracker.databinding.FragmentHomeBinding;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class HomeFragment extends Fragment {
     private FragmentHomeBinding binding;
@@ -49,6 +54,20 @@ public class HomeFragment extends Fragment {
                 .navigate(R.id.action_HomeFragment_to_CreatePlanFragment));
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // Get the TextView
+        TextView dateTextView = getView().findViewById(R.id.dateTextView);
+
+        // Get the current date
+        SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE, MM-dd-yyyy", Locale.getDefault());
+        String currentDate = dateFormat.format(new Date());
+
+        // Set the current date in the TextView
+        dateTextView.setText(currentDate);
+    }
 
     @Override
     public void onDestroyView() {

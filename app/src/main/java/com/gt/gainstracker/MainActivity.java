@@ -43,16 +43,6 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        // Get the TextView
-        TextView dateTextView = findViewById(R.id.dateTextView);
-
-        // Get the current date
-        SimpleDateFormat dateFormat = new SimpleDateFormat("EEEE, MM-dd-yyyy", Locale.getDefault());
-        String currentDate = dateFormat.format(new Date());
-
-        // Set the current date in the TextView
-        dateTextView.setText(currentDate);
-
         // View-binding the Navigation Drawer Toolbar
         setSupportActionBar(binding.sideNavMain.sideNavToolbar);
         toggle = new ActionBarDrawerToggle(this, binding.drawerLayout,
