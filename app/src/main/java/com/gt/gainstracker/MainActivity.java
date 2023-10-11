@@ -69,23 +69,23 @@ public class MainActivity extends AppCompatActivity {
                 if (id == R.id.triple_bar_home) {
                     transaction.replace(R.id.containers, new HomeFragment());
                     transaction.commit();
-                }
+//                }
 //                else if (id == R.id.triple_bar_user_profile) {
 //                    transaction.replace(R.id.containers, new FirstFragment());
 //                    transaction.commit();
 //                } else if (id == R.id.triple_bar_workout_plan) {
 //                    transaction.replace(R.id.containers, new FirstFragment());
 //                    transaction.commit();
-//                } else if (id == R.id.triple_bar_history) {
-//                    transaction.replace(R.id.containers, new FirstFragment());
-//                    transaction.commit();
+                } else if (id == R.id.triple_bar_history) {
+                    transaction.replace(R.id.containers, new HistoryFragment());
+                    transaction.commit();
 //                } else if (id == R.id.triple_bar_preferences) {
 //                    transaction.replace(R.id.containers, new FirstFragment());
 //                    transaction.commit();
-//                } else if (id == R.id.action_settings) {
-//                    transaction.replace(R.id.containers, new FirstFragment());
-//                    transaction.commit();
-//                }
+                } else if (id == R.id.action_settings) {
+                    transaction.replace(R.id.containers, new SettingsFragment());
+                    transaction.commit();
+                }
                 return true;
             }
         });
