@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         binding.drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
+
         if (savedInstanceState == null) {
             replaceFragment(new HomeFragment());
         }
