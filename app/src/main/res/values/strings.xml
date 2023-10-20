@@ -5,6 +5,8 @@
     <string name="home_fragment_label">Home - GainsTracker</string>
     <string name="create_plan_label">Create Plan</string>
     <string name="view_plan_label">View Plan</string>
+    <string name="history_label">History</string>
+    <string name="settings_label">Settings</string>
     <string name="create_plan">Create Plan</string>
     <string name="view_plan">View Plan</string>
     <string name="submit">Submit</string>
@@ -27,5 +29,8 @@
     <string name="program_length">Program Length:</string>
     <string name="goals">Goals:</string>
 
+
+    <!-- Placeholder Text For Testing -->
+    <string name="fragment_placeholder">Page Fragment</string>
 
 </resources>

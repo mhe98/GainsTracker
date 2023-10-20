@@ -3,7 +3,6 @@ package com.gt.gainstracker;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -21,11 +20,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.gt.gainstracker.databinding.ActivityMainBinding;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
 import java.util.Objects;
-import java.util.logging.Logger;
 
 public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
@@ -76,9 +71,9 @@ public class MainActivity extends AppCompatActivity {
 //                } else if (id == R.id.triple_bar_preferences) {
 //                    transaction.replace(R.id.containers, new FirstFragment());
 //                    transaction.commit();
-//                } else if (id == R.id.action_settings) {
-//                    transaction.replace(R.id.containers, new FirstFragment());
-//                    transaction.commit();
+                } else if (id == R.id.action_settings) {
+                    fragment = new SettingsFragment();
+                    title = getString(R.string.settings_label);
                 }
                 replaceFragment(fragment);
                 setFragmentTitle(title);
@@ -117,11 +112,13 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     protected void onPostCreate(Bundle state) {
         super.onPostCreate(state);
         toggle.syncState();
     }
+
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
@@ -129,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
                 || super.onSupportNavigateUp();
     }
 
-    public void setFragmentTitle(String title){
+    public void setFragmentTitle(String title) {
         Objects.requireNonNull(getSupportActionBar()).setTitle(title);
     }
 
