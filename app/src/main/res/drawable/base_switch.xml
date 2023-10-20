@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:drawable="@drawable/base_switch_left"
+        android:state_checked="false" />
+    <item
+        android:drawable="@drawable/base_switch_right"
+        android:state_checked="true" />
+
+
+</layer-list>

@@ -11,4 +11,15 @@
 <!--    </style>-->
 
     <style name="Theme.GainsTracker" parent="Base.Theme.GainsTracker" />
+
+<!-- Light Mode Style   -->
+    <style name="ScreenBackground">
+        <item name="android:background">@color/white</item>
+    </style>
+    <style name="MenuBackground">
+        <item name="android:background">@color/white</item>
+    </style>
+    <style name="TextColor">
+        <item name="android:background">@color/white</item>
+    </style>
 </resources>
