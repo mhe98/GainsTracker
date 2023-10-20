@@ -42,4 +42,18 @@
             android:id="@+id/action_ViewPlanFragment_to_HomeFragment"
             app:destination="@id/HomeFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/HistoryFragment"
+        android:name="com.gt.gainstracker.HistoryFragment"
+        android:label="@string/history_label"
+        tools:layout="@layout/fragment_history">
+    </fragment>
+
+    <fragment
+        android:id="@+id/SettingsFragment"
+        android:name="com.gt.gainstracker.SettingsFragment"
+        android:label="@string/settings_label"
+        tools:layout="@layout/fragment_settings">
+    </fragment>
 </navigation>
